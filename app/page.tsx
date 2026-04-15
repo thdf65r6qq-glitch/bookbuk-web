@@ -28,6 +28,14 @@ const MoonIcon = () => (
   </svg>
 );
 
+const IPadIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="6" y="2.5" width="12" height="19" rx="2.2" />
+    <path d="M11 5h2" />
+    <circle cx="12" cy="18.5" r="0.8" fill="currentColor" stroke="none" />
+  </svg>
+);
+
 const RuledLines = ({
   top = "28%",
   lineGap = 22,
@@ -124,10 +132,12 @@ export default function Home() {
         </p>
 
         <div
-          className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold mb-8 glass"
+          className="inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-sm font-semibold mb-8 glass"
           style={{ color: "var(--color-ink-secondary)" }}
         >
-          <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: "var(--color-accent)" }} />
+          <span className="inline-flex items-center justify-center" style={{ color: "var(--color-accent)" }}>
+            <IPadIcon />
+          </span>
           iPad only
         </div>
 
@@ -262,7 +272,7 @@ export default function Home() {
                 </svg>
               ),
               title: "Highlighter",
-              body: "Mark what matters. Tap once to highlight, tap again to go back to pen.",
+              body: "Mark what matters. Only yellow highlighter, its the best! :)",
             },
           ].map((feature) => (
             <div key={feature.title} className="glass rounded-3xl p-7 flex flex-col gap-4">
@@ -285,9 +295,9 @@ export default function Home() {
             </svg>
           </div>
           <div>
-            <h3 className="text-base font-semibold mb-1" style={{ color: "var(--color-ink)" }}>Books & Pages - everything stays in its place</h3>
+            <h3 className="text-base font-semibold mb-1" style={{ color: "var(--color-ink)" }}>Pages create books, books create life.</h3>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>
-              Create books, fill pages, and move through them naturally. Swipe to turn, tap the page number to jump anywhere, and keep every note neatly organised.
+              Create books, fill pages, and move through them naturally. Swipe to turn, tap to jump the page number, and keep every note neatly organised.
             </p>
           </div>
         </div>
