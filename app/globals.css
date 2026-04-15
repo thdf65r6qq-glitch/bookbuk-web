@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: #EDEBFF;
+  --color-paper-dark: #141430;
+  --color-lavender: #C8BCEE;
+  --color-lavender-dark: #2E2959;
+  --color-ink: #141430;
+  --color-ink-dark: #EDEBFF;
+  --color-ink-secondary: #2E2959;
+  --color-ink-secondary-dark: #C8BCEE;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #EDEBFF;
+  color: #141430;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #141430;
+    color: #EDEBFF;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(20, 20, 48, 0.10);
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass {
+    background: rgba(46, 41, 89, 0.52);
+    border: 1px solid rgba(237, 235, 255, 0.10);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #141430 0%, #2E2959 60%, #6B5FA8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-color-scheme: dark) {
+  .gradient-text {
+    background: linear-gradient(135deg, #EDEBFF 0%, #C8BCEE 60%, #9B8FD4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
