@@ -339,6 +339,11 @@ export default function Home() {
       <footer className="px-6 py-10 text-center text-sm" style={{ color: "var(--color-ink-secondary)", borderTop: "1px solid var(--footer-border)" }}>
         <p className="font-semibold mb-1" style={{ color: "var(--color-ink)" }}>BookBuk</p>
         <p>© {new Date().getFullYear()} BookBuk. iPad only.</p>
+        <p className="mt-3">
+          <a href="/privacypolicy" className="font-medium" style={{ color: "var(--color-accent)" }}>
+            Privacy Policy
+          </a>
+        </p>
       </footer>
     </div>
   );
