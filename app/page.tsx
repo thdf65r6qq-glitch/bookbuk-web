@@ -139,7 +139,7 @@ export default function Home() {
         </h1>
 
         <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-md" style={{ color: "var(--color-ink-secondary)" }}>
-          One page. One screen. Swipe to turn. Note-taking stays exactly what it always was - we just made it better.
+          Screen is your new paper, now be the best thought shaper.
         </p>
 
         <a
@@ -242,7 +242,7 @@ export default function Home() {
                 </svg>
               ),
               title: "Pen",
-              body: "Write with Apple Pencil or your finger. No settings, no decisions. Just start.",
+              body: "Write with Apple Pencil. No settings, no decisions. Just start.",
             },
             {
               icon: (
@@ -287,7 +287,7 @@ export default function Home() {
           <div>
             <h3 className="text-base font-semibold mb-1" style={{ color: "var(--color-ink)" }}>Books & Pages - everything stays in its place</h3>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>
-              Create books, fill pages, and move through them naturally. Swipe to turn, tap the page number to jump anywhere, and keep every note neatly organised without extra filing.
+              Create books, fill pages, and move through them naturally. Swipe to turn, tap the page number to jump anywhere, and keep every note neatly organised.
             </p>
           </div>
         </div>
@@ -295,7 +295,7 @@ export default function Home() {
 
       <section className="px-6 py-24">
         <div className="max-w-2xl mx-auto rounded-[2.5rem] p-12 text-center" style={{ backgroundColor: "var(--premium-bg)", border: "1px solid var(--premium-border)" }}>
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--premium-subtle)", opacity: 0.78 }}>
+          <p className="text-sm sm:text-base font-bold uppercase tracking-[0.35em] mb-5" style={{ color: "var(--premium-subtle)", opacity: 0.9 }}>
             Premium
           </p>
           <h2 className="text-4xl font-bold tracking-tight mb-4" style={{ color: "var(--premium-text)" }}>
