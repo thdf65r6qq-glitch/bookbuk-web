@@ -41,7 +41,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: "For privacy-related questions, contact BookBuk at hello@bookbuk.ink.",
+    body: "For privacy-related questions, contact BookBuk at varadkhadke@gmail.com.",
   },
 ];
 
