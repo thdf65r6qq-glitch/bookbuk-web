@@ -157,7 +157,7 @@ export default function Home() {
           style={{ backgroundColor: "var(--cta-bg)", color: "var(--cta-text)" }}
         >
           <AppleLogo size={20} />
-          Download on the App Store
+          Soon on App Store
         </a>
 
         <div className="mt-16 w-full max-w-xl mx-auto">
