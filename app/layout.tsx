@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   title: "BookBuk - Notebook for iPad",
   description: "A distraction-free notebook for iPad. Write, draw, and organise your thoughts into books and pages.",
   metadataBase: new URL("https://bookbuk.ink"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/icon.png?v=2", type: "image/png", sizes: "1024x1024" },
+    ],
+    apple: [{ url: "/apple-icon.png?v=2", sizes: "1024x1024" }],
+  },
   openGraph: {
     title: "BookBuk - Notebook for iPad",
     description: "A distraction-free notebook for iPad. Write, draw, and organise your thoughts into books and pages.",
