@@ -31,8 +31,7 @@ const MoonIcon = () => (
 const IPadIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
     <rect x="3.5" y="5" width="17" height="14" rx="2.8" />
-    <rect x="5.8" y="7.2" width="12.4" height="9.6" rx="1.3" />
-    <circle cx="12" cy="18" r="0.7" fill="currentColor" stroke="none" />
+    <path d="M9.2 16.4h5.6" />
   </svg>
 );
 
