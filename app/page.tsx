@@ -29,10 +29,10 @@ const MoonIcon = () => (
 );
 
 const IPadIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="6" y="2.5" width="12" height="19" rx="2.2" />
-    <path d="M11 5h2" />
-    <circle cx="12" cy="18.5" r="0.8" fill="currentColor" stroke="none" />
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3.5" y="5" width="17" height="14" rx="2.8" />
+    <rect x="5.8" y="7.2" width="12.4" height="9.6" rx="1.3" />
+    <circle cx="12" cy="18" r="0.7" fill="currentColor" stroke="none" />
   </svg>
 );
 
