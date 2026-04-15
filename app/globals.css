@@ -1,14 +1,96 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-paper: #EDEBFF;
+  --color-paper: #edebff;
   --color-paper-dark: #141430;
-  --color-lavender: #C8BCEE;
-  --color-lavender-dark: #2E2959;
+  --color-lavender: #c8bcee;
+  --color-lavender-dark: #2e2959;
   --color-ink: #141430;
-  --color-ink-dark: #EDEBFF;
-  --color-ink-secondary: #2E2959;
-  --color-ink-secondary-dark: #C8BCEE;
+  --color-ink-dark: #edebff;
+  --color-ink-secondary: #2e2959;
+  --color-ink-secondary-dark: #c8bcee;
+}
+
+:root {
+  --color-paper: #edebff;
+  --color-paper-soft: #f7f4ff;
+  --color-ink: #141430;
+  --color-ink-secondary: #4b4671;
+  --color-accent: #6b5fa8;
+  --glass-bg: rgba(255, 255, 255, 0.52);
+  --glass-border: rgba(20, 20, 48, 0.1);
+  --icon-chip-bg: rgba(20, 20, 48, 0.07);
+  --footer-border: rgba(20, 20, 48, 0.08);
+  --cta-bg: #141430;
+  --cta-text: #edebff;
+  --mock-page-bg: #eeecff;
+  --mock-control-bg: rgba(255, 255, 255, 0.56);
+  --mock-control-border: rgba(20, 20, 48, 0.1);
+  --mock-control-ink: #141430;
+  --mock-active-bg: rgba(255, 255, 255, 0.84);
+  --mock-active-border: rgba(20, 20, 48, 0.16);
+  --mock-muted-bg: rgba(255, 255, 255, 0.4);
+  --mock-muted-border: rgba(20, 20, 48, 0.08);
+  --mock-divider: rgba(20, 20, 48, 0.18);
+  --rule-line: rgba(20, 20, 48, 0.09);
+  --preview-page-bg: #eeecff;
+  --preview-page-border: rgba(20, 20, 48, 0.1);
+  --preview-toolbar-border: rgba(20, 20, 48, 0.06);
+  --preview-dot-strong: rgba(255, 255, 255, 0.72);
+  --preview-dot-soft: rgba(255, 255, 255, 0.55);
+  --preview-rule-line: rgba(20, 20, 48, 0.08);
+  --preview-page-number: rgba(20, 20, 48, 0.3);
+  --premium-bg: #141430;
+  --premium-border: rgba(20, 20, 48, 0.04);
+  --premium-text: #edebff;
+  --premium-subtle: #c8bcee;
+  --premium-chip-bg: rgba(237, 235, 255, 0.08);
+  --premium-button-bg: #edebff;
+  --premium-button-text: #141430;
+  --gradient-start: #141430;
+  --gradient-middle: #2e2959;
+  --gradient-end: #6b5fa8;
+}
+
+html[data-theme="dark"] {
+  --color-paper: #0e0d1f;
+  --color-paper-soft: #181632;
+  --color-ink: #f7f4ff;
+  --color-ink-secondary: #c9c4ec;
+  --color-accent: #b7a9ff;
+  --glass-bg: rgba(30, 27, 57, 0.72);
+  --glass-border: rgba(237, 235, 255, 0.1);
+  --icon-chip-bg: rgba(237, 235, 255, 0.08);
+  --footer-border: rgba(237, 235, 255, 0.1);
+  --cta-bg: #f1eeff;
+  --cta-text: #141430;
+  --mock-page-bg: #181632;
+  --mock-control-bg: rgba(247, 244, 255, 0.1);
+  --mock-control-border: rgba(237, 235, 255, 0.12);
+  --mock-control-ink: #f7f4ff;
+  --mock-active-bg: rgba(247, 244, 255, 0.18);
+  --mock-active-border: rgba(237, 235, 255, 0.22);
+  --mock-muted-bg: rgba(247, 244, 255, 0.08);
+  --mock-muted-border: rgba(237, 235, 255, 0.1);
+  --mock-divider: rgba(237, 235, 255, 0.18);
+  --rule-line: rgba(237, 235, 255, 0.14);
+  --preview-page-bg: #181632;
+  --preview-page-border: rgba(237, 235, 255, 0.12);
+  --preview-toolbar-border: rgba(237, 235, 255, 0.08);
+  --preview-dot-strong: rgba(247, 244, 255, 0.2);
+  --preview-dot-soft: rgba(247, 244, 255, 0.14);
+  --preview-rule-line: rgba(237, 235, 255, 0.12);
+  --preview-page-number: rgba(237, 235, 255, 0.4);
+  --premium-bg: #f3efff;
+  --premium-border: rgba(237, 235, 255, 0.12);
+  --premium-text: #141430;
+  --premium-subtle: #5e568e;
+  --premium-chip-bg: rgba(20, 20, 48, 0.08);
+  --premium-button-bg: #141430;
+  --premium-button-text: #edebff;
+  --gradient-start: #f7f4ff;
+  --gradient-middle: #d4cbff;
+  --gradient-end: #b7a9ff;
 }
 
 * {
@@ -20,45 +102,84 @@ html {
 }
 
 body {
-  background-color: #EDEBFF;
-  color: #141430;
+  background:
+    radial-gradient(circle at top, rgba(166, 153, 221, 0.22), transparent 32%),
+    linear-gradient(180deg, var(--color-paper-soft) 0%, var(--color-paper) 44%, var(--color-paper) 100%);
+  color: var(--color-ink);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition:
+    background 220ms ease,
+    color 220ms ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #141430;
-    color: #EDEBFF;
-  }
+.page-shell {
+  transition: background-color 220ms ease;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.48);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(20, 20, 48, 0.10);
-}
-
-@media (prefers-color-scheme: dark) {
-  .glass {
-    background: rgba(46, 41, 89, 0.52);
-    border: 1px solid rgba(237, 235, 255, 0.10);
-  }
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 24px 80px rgba(20, 20, 48, 0.08);
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #141430 0%, #2E2959 60%, #6B5FA8 100%);
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 58%, var(--gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-@media (prefers-color-scheme: dark) {
-  .gradient-text {
-    background: linear-gradient(135deg, #EDEBFF 0%, #C8BCEE 60%, #9B8FD4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 14px 40px rgba(20, 20, 48, 0.12);
+  transition:
+    transform 180ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 9999px;
+  background: var(--icon-chip-bg);
+}
+
+@media (max-width: 640px) {
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.82rem;
   }
 }
