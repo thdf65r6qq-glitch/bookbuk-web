@@ -228,14 +228,7 @@ export default function Home() {
           iPad only
         </div>
 
-        <div className="relative mt-4 w-full max-w-5xl mx-auto pt-16 sm:pt-20">
-          <h1
-            className="absolute top-0 left-1/2 z-10 -translate-x-1/2 text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight gradient-text"
-            style={{ width: "min(100%, 9ch)", textWrap: "balance" }}
-          >
-            Easier than paper.
-          </h1>
-
+        <div className="relative mt-4 w-full max-w-5xl mx-auto">
           <div className="w-full max-w-xl mx-auto">
             <div className="relative rounded-[2rem] p-4 shadow-2xl glass" style={{ aspectRatio: "4/3" }}>
               <div className="h-full rounded-2xl flex flex-col overflow-hidden" style={{ backgroundColor: "var(--mock-page-bg)" }}>
@@ -293,8 +286,15 @@ export default function Home() {
             </div>
           </div>
 
+          <h1
+            className="relative z-10 -mt-12 sm:-mt-16 md:-mt-20 text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight gradient-text"
+            style={{ textWrap: "balance" }}
+          >
+            Easier than paper.
+          </h1>
+
           <p
-            className="mt-10 text-[1.2rem] sm:text-[1.55rem] leading-[1.15] font-semibold tracking-tight max-w-4xl mx-auto"
+            className="mt-6 text-[1.2rem] sm:text-[1.55rem] leading-[1.15] font-semibold tracking-tight max-w-4xl mx-auto"
             style={{ color: "var(--color-ink)", textWrap: "balance" }}
           >
             <span>Screen is your new paper </span>
