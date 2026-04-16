@@ -199,7 +199,27 @@ export default function Home() {
   return (
     <div className="min-h-screen page-shell" style={{ backgroundColor: "var(--color-paper)" }}>
       <div className="px-6 pt-4">
-        <div className="max-w-6xl mx-auto flex justify-end">
+        <div className="max-w-6xl mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="rounded-[1.1rem] overflow-hidden shadow-sm" style={{ backgroundColor: "rgba(20,20,48,0.06)" }}>
+              <Image
+                src="/bookbuk-logo.png"
+                alt="BookBuk icon"
+                width={52}
+                height={52}
+                className="h-[42px] w-[42px] sm:h-[46px] sm:w-[46px]"
+                priority
+              />
+            </div>
+          </div>
+
+          <p
+            className="text-center text-xl sm:text-2xl font-semibold tracking-tight"
+            style={{ color: "var(--color-ink)" }}
+          >
+            BookBuk
+          </p>
+
           <button
             type="button"
             className="theme-toggle"
@@ -211,16 +231,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-1 pb-16 text-center">
-        <Image
-          src="/bookbuk-logo.png"
-          alt="BookBuk"
-          width={180}
-          height={180}
-          className="mb-4 h-auto w-[120px] sm:w-[138px]"
-          priority
-        />
-
+      <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-3 pb-16 text-center">
         <div
           className="inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-sm font-semibold mb-6 glass"
           style={{ color: "var(--color-ink-secondary)" }}
@@ -321,6 +332,21 @@ export default function Home() {
             <AppleLogo size={20} />
             Soon on App Store
           </a>
+
+          <div className="mt-5 flex flex-col items-center gap-2" style={{ color: "var(--color-ink-secondary)" }}>
+            <div className="rounded-[1rem] overflow-hidden shadow-sm" style={{ backgroundColor: "rgba(20,20,48,0.06)" }}>
+              <Image
+                src="/bookbuk-logo.png"
+                alt="BookBuk app icon"
+                width={56}
+                height={56}
+                className="h-[48px] w-[48px]"
+              />
+            </div>
+            <p className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>
+              Search for BookBuk
+            </p>
+          </div>
         </div>
       </section>
 
