@@ -232,16 +232,6 @@ export default function Home() {
       </div>
 
       <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-3 pb-16 text-center">
-        <div
-          className="inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-sm font-semibold mb-6 glass"
-          style={{ color: "var(--color-ink-secondary)" }}
-        >
-          <span className="inline-flex items-center justify-center" style={{ color: "var(--color-accent)" }}>
-            <IPadIcon />
-          </span>
-          iPad only
-        </div>
-
         <div className="relative mt-1 w-full max-w-5xl mx-auto">
           <div className="w-full max-w-xl mx-auto h-[230px] sm:h-[280px] md:h-[320px] overflow-hidden">
             <div className="relative rounded-[2rem] p-4 shadow-2xl glass" style={{ aspectRatio: "4/3" }}>
@@ -332,21 +322,16 @@ export default function Home() {
             <AppleLogo size={20} />
             Soon on App Store
           </a>
+        </div>
 
-          <div className="mt-5 flex flex-col items-center gap-2" style={{ color: "var(--color-ink-secondary)" }}>
-            <div className="rounded-[1rem] overflow-hidden shadow-sm" style={{ backgroundColor: "rgba(20,20,48,0.06)" }}>
-              <Image
-                src="/bookbuk-logo.png"
-                alt="BookBuk app icon"
-                width={56}
-                height={56}
-                className="h-[48px] w-[48px]"
-              />
-            </div>
-            <p className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>
-              Search for BookBuk
-            </p>
-          </div>
+        <div
+          className="inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-sm font-semibold mt-8 glass"
+          style={{ color: "var(--color-ink-secondary)" }}
+        >
+          <span className="inline-flex items-center justify-center" style={{ color: "var(--color-accent)" }}>
+            <IPadIcon />
+          </span>
+          iPad only
         </div>
       </section>
 
