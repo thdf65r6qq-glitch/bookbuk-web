@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const AppleLogo = ({ size = 17 }: { size?: number }) => (
   <svg width={size * 0.85} height={size} viewBox="0 0 814 1000" fill="currentColor">
@@ -182,6 +182,7 @@ const SwipeFlowPreview = () => (
 );
 
 export default function Home() {
+  const windRef = useRef<HTMLDivElement | null>(null);
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window === "undefined") {
       return "light";
@@ -201,8 +202,54 @@ export default function Home() {
     window.localStorage.setItem("bookbuk-theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    const wind = windRef.current;
+
+    if (!wind || !window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
+
+    let frameId = 0;
+    let visible = false;
+    let currentX = window.innerWidth * 0.5;
+    let currentY = window.innerHeight * 0.25;
+    let targetX = currentX;
+    let targetY = currentY;
+
+    const render = () => {
+      currentX += (targetX - currentX) * 0.12;
+      currentY += (targetY - currentY) * 0.12;
+      wind.style.setProperty("--magic-x", `${currentX}px`);
+      wind.style.setProperty("--magic-y", `${currentY}px`);
+      wind.style.setProperty("--magic-opacity", visible ? "1" : "0");
+      frameId = window.requestAnimationFrame(render);
+    };
+
+    const handleMove = (event: PointerEvent) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      visible = true;
+    };
+
+    const handleLeave = () => {
+      visible = false;
+    };
+
+    frameId = window.requestAnimationFrame(render);
+    window.addEventListener("pointermove", handleMove);
+    window.addEventListener("pointerleave", handleLeave);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.removeEventListener("pointermove", handleMove);
+      window.removeEventListener("pointerleave", handleLeave);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen page-shell" style={{ backgroundColor: "var(--color-paper)" }}>
+      <div ref={windRef} className="magic-wind" aria-hidden="true" />
+      <div className="page-content">
       <button
         type="button"
         className="theme-toggle"
@@ -438,6 +485,7 @@ export default function Home() {
           </a>
         </p>
       </footer>
+      </div>
     </div>
   );
 }
