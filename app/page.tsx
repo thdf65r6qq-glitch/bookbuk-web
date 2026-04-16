@@ -91,6 +91,107 @@ const PagePreview = ({ pageNumber }: { pageNumber: number }) => (
   </div>
 );
 
+const ScrollComfortPreview = () => (
+  <div className="glass rounded-3xl p-7 sm:p-8 mt-4">
+    <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
+      <div className="lg:max-w-sm">
+        <p
+          className="text-xs font-semibold uppercase tracking-[0.28em] mb-3"
+          style={{ color: "var(--color-accent)" }}
+        >
+          Thoughtful Design
+        </p>
+        <h3 className="text-2xl font-bold tracking-tight mb-3" style={{ color: "var(--color-ink)" }}>
+          Write to the last line. Hands down.
+        </h3>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>
+          Near the bottom of a page, bookbuk quietly scrolls the content up — leaving a blank zone at the bottom of your screen. Your hand rests comfortably while you finish every last line. No tilting, no stretching. The page takes care of you.
+        </p>
+      </div>
+
+      <div className="flex-1 flex items-center justify-center min-w-0">
+        <div className="flex items-end gap-6">
+          {/* Page mock — before: cramped */}
+          <div className="flex flex-col items-center gap-2">
+            <div
+              className="rounded-[1.5rem] relative overflow-hidden"
+              style={{
+                width: 130,
+                height: 185,
+                backgroundColor: "var(--preview-page-bg)",
+                border: "1px solid var(--preview-page-border)",
+              }}
+            >
+              <div className="absolute inset-x-0 top-0 h-9 z-10" style={{ borderBottom: "1px solid var(--preview-toolbar-border)" }} />
+              <div className="absolute top-2 left-3 flex gap-1 z-10">
+                <div className="w-3 h-3 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+                <div className="w-3 h-3 rounded-full flex items-center justify-center text-[6px] font-semibold" style={{ background: "var(--preview-dot-strong)", color: "var(--preview-number-ink)" }}>1</div>
+              </div>
+              <div className="absolute left-[12%] right-[12%] flex flex-col gap-[9px]" style={{ top: "44px" }}>
+                {["93%", "86%", "97%", "81%", "94%", "88%", "96%", "83%", "91%", "97%", "78%"].map((w, i) => (
+                  <div key={i} className="h-[1.5px] rounded-full" style={{ width: w, backgroundColor: "var(--color-accent)", opacity: 0.45 + i * 0.04 }} />
+                ))}
+              </div>
+            </div>
+            <span className="text-[10px] font-medium" style={{ color: "var(--color-ink-secondary)" }}>without it</span>
+          </div>
+
+          {/* Arrow */}
+          <div className="flex flex-col items-center gap-1.5 pb-7">
+            <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
+              <path d="M2 11H30M22 3L30 11L22 19" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+
+          {/* Page mock — after: comfortable, scrolled up */}
+          <div className="flex flex-col items-center gap-2">
+            <div
+              className="rounded-[1.5rem] relative overflow-hidden"
+              style={{
+                width: 130,
+                height: 185,
+                backgroundColor: "var(--preview-page-bg)",
+                border: "1px solid var(--preview-page-border)",
+              }}
+            >
+              <div className="absolute inset-x-0 top-0 h-9 z-10" style={{ borderBottom: "1px solid var(--preview-toolbar-border)" }} />
+              <div className="absolute top-2 left-3 flex gap-1 z-10">
+                <div className="w-3 h-3 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+                <div className="w-3 h-3 rounded-full flex items-center justify-center text-[6px] font-semibold" style={{ background: "var(--preview-dot-strong)", color: "var(--preview-number-ink)" }}>1</div>
+              </div>
+              {/* Scrolled-up content */}
+              <div className="absolute left-[12%] right-[12%] flex flex-col gap-[9px]" style={{ top: "44px" }}>
+                {["88%", "95%", "81%", "93%", "86%", "97%", "78%"].map((w, i) => (
+                  <div key={i} className="h-[1.5px] rounded-full" style={{ width: w, backgroundColor: "var(--color-accent)", opacity: 0.55 + i * 0.05 }} />
+                ))}
+                {/* Active last line being written */}
+                <div className="h-[1.5px] rounded-full" style={{ width: "44%", backgroundColor: "var(--color-accent)" }} />
+              </div>
+              {/* Blank rest zone */}
+              <div
+                className="absolute inset-x-0 bottom-0 rounded-b-[1.5rem] z-10 flex flex-col items-center justify-center gap-1"
+                style={{ height: "32%" }}
+              >
+                <div
+                  className="absolute inset-x-3 top-0"
+                  style={{
+                    height: "1px",
+                    backgroundImage: "repeating-linear-gradient(to right, var(--preview-rule-line) 0 5px, transparent 5px 10px)",
+                  }}
+                />
+                <span className="text-[8px] font-semibold uppercase tracking-widest mt-2" style={{ color: "var(--color-accent)", opacity: 0.45 }}>
+                  hand rests here
+                </span>
+              </div>
+            </div>
+            <span className="text-[10px] font-medium" style={{ color: "var(--color-ink-secondary)" }}>with bookbuk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const SwipeFlowPreview = () => (
   <div className="glass rounded-3xl p-7 sm:p-8 mb-4">
     <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
@@ -423,6 +524,8 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+        <ScrollComfortPreview />
       </section>
 
       <section className="px-6 py-24">
