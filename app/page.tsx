@@ -197,16 +197,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen page-shell" style={{ backgroundColor: "var(--color-paper)" }}>
-      <button
-        type="button"
-        className="theme-toggle"
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-      >
-        <span className="theme-toggle__icon">{theme === "light" ? <MoonIcon /> : <SunIcon />}</span>
-      </button>
+      <div className="px-6 pt-8">
+        <div className="max-w-6xl mx-auto flex justify-end">
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+          >
+            <span className="theme-toggle__icon">{theme === "light" ? <MoonIcon /> : <SunIcon />}</span>
+          </button>
+        </div>
+      </div>
 
-      <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-24 pb-16 text-center">
+      <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-12 pb-16 text-center">
         <p
           className="text-2xl font-bold mb-6"
           style={{ fontFamily: "Noteworthy, var(--font-fredoka), cursive", color: "var(--color-ink)" }}
@@ -224,90 +228,92 @@ export default function Home() {
           iPad only
         </div>
 
-        <h1
-          className="text-6xl sm:text-7xl md:text-8xl font-bold leading-[1.05] tracking-tight mb-6 gradient-text"
-          style={{ maxWidth: "760px" }}
-        >
-          Easier than paper.
-        </h1>
-
-        <p
-          className="text-[1.45rem] sm:text-[1.9rem] leading-[1.15] font-semibold tracking-tight mb-10 max-w-2xl"
-          style={{ color: "var(--color-ink)", textWrap: "balance" }}
-        >
-          <span className="block">Screen is your new paper</span>
-          <span
-            className="block mt-1"
-            style={{ color: "var(--color-accent)" }}
+        <div className="relative mt-4 w-full max-w-5xl mx-auto pt-16 sm:pt-20">
+          <h1
+            className="absolute top-0 left-1/2 z-10 -translate-x-1/2 text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight gradient-text"
+            style={{ width: "min(100%, 9ch)", textWrap: "balance" }}
           >
-            now be the best thought shaper.
-          </span>
-        </p>
+            Easier than paper.
+          </h1>
 
-        <a
-          href="#"
-          className="inline-flex items-center gap-3 rounded-2xl px-8 py-4 text-base font-semibold transition-transform hover:scale-[1.03] active:scale-[0.98]"
-          style={{ backgroundColor: "var(--cta-bg)", color: "var(--cta-text)" }}
-        >
-          <AppleLogo size={20} />
-          Soon on App Store
-        </a>
-
-        <div className="mt-16 w-full max-w-xl mx-auto">
-          <div className="relative rounded-[2rem] p-4 shadow-2xl glass" style={{ aspectRatio: "4/3" }}>
-            <div className="h-full rounded-2xl flex flex-col overflow-hidden" style={{ backgroundColor: "var(--mock-page-bg)" }}>
-              <div className="flex items-center justify-between px-4 pt-3 pb-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-control-bg)", border: "1px solid var(--mock-control-border)" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                    </svg>
-                  </div>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-control-bg)", border: "1px solid var(--mock-control-border)" }}>
-                    <span className="text-xs font-semibold" style={{ color: "var(--mock-control-ink)" }}>1</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-active-bg)", border: "1px solid var(--mock-active-border)" }}>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 20h9" />
-                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
-                    </svg>
-                  </div>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-muted-bg)", border: "1px solid var(--mock-muted-border)" }}>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5">
-                      <path d="M20 20H7L3 16l10-10 7 7-2.5 2.5" />
-                      <path d="M6.0001 17.0001L17 6" />
-                    </svg>
-                  </div>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-muted-bg)", border: "1px solid var(--mock-muted-border)" }}>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5">
-                      <path d="M9 11l-6 6v3h9l3-3" />
-                      <path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4" />
-                    </svg>
-                  </div>
-                  <div className="h-9 rounded-full flex items-center px-1" style={{ background: "var(--mock-muted-bg)", border: "1px solid var(--mock-muted-border)" }}>
-                    <div className="w-8 h-8 flex items-center justify-center" style={{ opacity: 0.45 }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 7v6h6" />
-                        <path d="M3 13C5.4 7.4 12.3 4.8 18 7.4a9 9 0 0 1 3 13.1" />
+          <div className="w-full max-w-xl mx-auto">
+            <div className="relative rounded-[2rem] p-4 shadow-2xl glass" style={{ aspectRatio: "4/3" }}>
+              <div className="h-full rounded-2xl flex flex-col overflow-hidden" style={{ backgroundColor: "var(--mock-page-bg)" }}>
+                <div className="flex items-center justify-between px-4 pt-3 pb-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-control-bg)", border: "1px solid var(--mock-control-border)" }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                       </svg>
                     </div>
-                    <div className="w-px h-4" style={{ backgroundColor: "var(--mock-divider)" }} />
-                    <div className="w-8 h-8 flex items-center justify-center" style={{ opacity: 0.45 }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }}>
-                        <path d="M3 7v6h6" />
-                        <path d="M3 13C5.4 7.4 12.3 4.8 18 7.4a9 9 0 0 1 3 13.1" />
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-control-bg)", border: "1px solid var(--mock-control-border)" }}>
+                      <span className="text-xs font-semibold" style={{ color: "var(--mock-control-ink)" }}>1</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-active-bg)", border: "1px solid var(--mock-active-border)" }}>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
                       </svg>
+                    </div>
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-muted-bg)", border: "1px solid var(--mock-muted-border)" }}>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5">
+                        <path d="M20 20H7L3 16l10-10 7 7-2.5 2.5" />
+                        <path d="M6.0001 17.0001L17 6" />
+                      </svg>
+                    </div>
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "var(--mock-muted-bg)", border: "1px solid var(--mock-muted-border)" }}>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5">
+                        <path d="M9 11l-6 6v3h9l3-3" />
+                        <path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4" />
+                      </svg>
+                    </div>
+                    <div className="h-9 rounded-full flex items-center px-1" style={{ background: "var(--mock-muted-bg)", border: "1px solid var(--mock-muted-border)" }}>
+                      <div className="w-8 h-8 flex items-center justify-center" style={{ opacity: 0.45 }}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M3 7v6h6" />
+                          <path d="M3 13C5.4 7.4 12.3 4.8 18 7.4a9 9 0 0 1 3 13.1" />
+                        </svg>
+                      </div>
+                      <div className="w-px h-4" style={{ backgroundColor: "var(--mock-divider)" }} />
+                      <div className="w-8 h-8 flex items-center justify-center" style={{ opacity: 0.45 }}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--mock-control-ink)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }}>
+                          <path d="M3 7v6h6" />
+                          <path d="M3 13C5.4 7.4 12.3 4.8 18 7.4a9 9 0 0 1 3 13.1" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="relative flex-1 overflow-hidden">
-                <RuledLines top="31%" lineGap={22} lineColor="var(--rule-line)" />
+                <div className="relative flex-1 overflow-hidden">
+                  <RuledLines top="31%" lineGap={22} lineColor="var(--rule-line)" />
+                </div>
               </div>
             </div>
           </div>
+
+          <p
+            className="mt-8 text-[1.45rem] sm:text-[1.9rem] leading-[1.15] font-semibold tracking-tight max-w-2xl mx-auto"
+            style={{ color: "var(--color-ink)", textWrap: "balance" }}
+          >
+            <span className="block">Screen is your new paper</span>
+            <span
+              className="block mt-1"
+              style={{ color: "var(--color-accent)" }}
+            >
+              now be the best thought shaper.
+            </span>
+          </p>
+
+          <a
+            href="#"
+            className="mt-8 inline-flex items-center gap-3 rounded-2xl px-8 py-4 text-base font-semibold transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            style={{ backgroundColor: "var(--cta-bg)", color: "var(--cta-text)" }}
+          >
+            <AppleLogo size={20} />
+            Soon on App Store
+          </a>
         </div>
       </section>
 
