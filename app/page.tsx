@@ -391,10 +391,8 @@ export default function Home() {
               title: "Highlighter",
               body: (
                 <>
-                  Mark what matters.{" "}
-                  <span className="inline-highlight">
-                    Only yellow highlighter, its the best! :)
-                  </span>
+                  Mark what matters. Only yellow highlighter,{" "}
+                  <span className="inline-highlight">its the best! :)</span>
                 </>
               ),
             },
