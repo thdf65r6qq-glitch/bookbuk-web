@@ -105,13 +105,13 @@ const ScrollComfortPreview = () => (
           Write to the last line. Hands down.
         </h3>
         <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>
-          Near the bottom of a page, bookbuk quietly scrolls the content up — leaving a blank zone at the bottom of your screen. Your hand rests comfortably while you finish every last line. No tilting, no stretching. The page takes care of you.
+          Near the bottom of a page, bookbuk quietly scrolls the content up - leaving a blank zone at the bottom of your screen. Your hand rests comfortably while you finish every last line. No tilting, no stretching. The page takes care of you.
         </p>
       </div>
 
       <div className="flex-1 flex items-center justify-center min-w-0">
         <div className="flex items-end gap-6">
-          {/* Page mock — before: cramped */}
+          {/* Page mock - before: cramped */}
           <div className="flex flex-col items-center gap-2">
             <div
               className="rounded-[1.5rem] relative overflow-hidden"
@@ -143,7 +143,7 @@ const ScrollComfortPreview = () => (
             </svg>
           </div>
 
-          {/* Page mock — after: comfortable, scrolled up */}
+          {/* Page mock - after: comfortable, scrolled up */}
           <div className="flex flex-col items-center gap-2">
             <div
               className="rounded-[1.5rem] relative overflow-hidden"
