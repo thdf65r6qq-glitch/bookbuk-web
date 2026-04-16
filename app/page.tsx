@@ -308,9 +308,8 @@ export default function Home() {
             className="mt-6 text-[1.2rem] sm:text-[1.55rem] leading-[1.15] font-semibold tracking-tight max-w-4xl mx-auto"
             style={{ color: "var(--color-ink)", textWrap: "balance" }}
           >
-            <span>Screen is your new paper </span>
-            <span style={{ color: "var(--color-accent)" }}>
-              now be the best thought shaper.
+            <span className="hero-subline">
+              Screen is your new paper now be the best thought shaper.
             </span>
           </p>
 
