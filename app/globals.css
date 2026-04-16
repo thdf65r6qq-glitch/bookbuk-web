@@ -103,8 +103,8 @@ html[data-theme="dark"] {
   --hero-subline-start: #f7f4ff;
   --hero-subline-middle: #d9d0ff;
   --hero-subline-end: #bcb0ff;
-  --highlight-marker: rgba(255, 228, 92, 0.82);
-  --highlight-marker-edge: rgba(244, 204, 36, 0.92);
+  --highlight-marker: rgba(255, 228, 92, 0.22);
+  --highlight-marker-edge: rgba(244, 204, 36, 0.28);
 }
 
 * {
