@@ -204,7 +204,6 @@ export default function Home() {
         aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       >
         <span className="theme-toggle__icon">{theme === "light" ? <MoonIcon /> : <SunIcon />}</span>
-        {theme === "light" ? "Dark mode" : "Light mode"}
       </button>
 
       <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-24 pb-16 text-center">
