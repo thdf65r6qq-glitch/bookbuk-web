@@ -224,7 +224,7 @@ export default function Home() {
             Real pages. No endless scrolling.
           </h2>
           <p className="text-sm mb-8" style={{ color: "var(--color-ink-secondary)" }}>
-            One page, one screen. Write to the last line, then swipe to turn.
+            One page, one screen. Your book already has unlimited pages, so when you reach the end, just swipe to the next one. No separate add-page step. It works like magic.
           </p>
 
           <div className="flex items-center justify-center gap-4">
