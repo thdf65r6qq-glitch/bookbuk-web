@@ -57,6 +57,8 @@
   --hero-subline-end: #7a6fc2;
   --highlight-marker: rgba(255, 228, 92, 0.85);
   --highlight-marker-edge: rgba(244, 204, 36, 0.95);
+  --demo-surface: rgba(20, 20, 48, 0.04);
+  --demo-border: rgba(20, 20, 48, 0.08);
 }
 
 html[data-theme="dark"] {
@@ -105,6 +107,8 @@ html[data-theme="dark"] {
   --hero-subline-end: #bcb0ff;
   --highlight-marker: rgba(255, 228, 92, 0.82);
   --highlight-marker-edge: rgba(244, 204, 36, 0.92);
+  --demo-surface: rgba(247, 244, 255, 0.06);
+  --demo-border: rgba(237, 235, 255, 0.1);
 }
 
 * {
@@ -171,6 +175,103 @@ body {
     linear-gradient(180deg, transparent 0 38%, var(--highlight-marker-edge) 38% 78%, transparent 78% 100%);
 }
 
+.feature-demo {
+  position: relative;
+  min-height: 86px;
+  border-radius: 1.15rem;
+  border: 1px solid var(--demo-border);
+  background: var(--demo-surface);
+  overflow: hidden;
+}
+
+.feature-demo__pen-text,
+.feature-demo__eraser-text,
+.feature-demo__highlight-text {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.feature-demo__pen-text {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  opacity: 0;
+  animation: pen-write 2.8s ease-out forwards;
+}
+
+.feature-demo__eraser-wrap,
+.feature-demo__highlight-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.feature-demo__eraser-text {
+  color: var(--color-ink-secondary);
+  white-space: nowrap;
+  animation: eraser-fade 2.8s ease-in-out forwards;
+}
+
+.feature-demo__eraser-block {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  width: 1.2rem;
+  height: 1.4rem;
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--demo-border);
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: eraser-swipe 2.8s ease-in-out forwards;
+}
+
+.feature-demo__highlight-text {
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.feature-demo__highlight-marker {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  top: 50%;
+  height: 1.1rem;
+  border-radius: 0.55rem;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  background:
+    linear-gradient(180deg, var(--highlight-marker-edge) 0%, var(--highlight-marker) 100%);
+  opacity: 0.95;
+  animation: highlight-pass 2.6s ease-out forwards;
+}
+
+.feature-replay {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--demo-border);
+  background: var(--glass-bg);
+  color: var(--color-ink-secondary);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.feature-replay:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -221,8 +322,85 @@ body {
   }
 }
 
+@keyframes pen-write {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    width: 7.2ch;
+    opacity: 1;
+  }
+}
+
+@keyframes eraser-swipe {
+  0% {
+    opacity: 0;
+    transform: translate(0, -50%) rotate(-14deg);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(7.2rem, -50%) rotate(-14deg);
+  }
+}
+
+@keyframes eraser-fade {
+  0%,
+  35% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(1px);
+  }
+}
+
+@keyframes highlight-pass {
+  0% {
+    transform: translateY(-50%) scaleX(0);
+    opacity: 0.2;
+  }
+
+  20% {
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: translateY(-50%) scaleX(1);
+    opacity: 0.95;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-subline {
     animation: none;
+  }
+
+  .feature-demo__pen-text,
+  .feature-demo__eraser-text,
+  .feature-demo__eraser-block,
+  .feature-demo__highlight-marker {
+    animation: none;
+  }
+
+  .feature-demo__pen-text {
+    width: 7.2ch;
+    opacity: 1;
+  }
+
+  .feature-demo__highlight-marker {
+    transform: translateY(-50%) scaleX(1);
   }
 }
