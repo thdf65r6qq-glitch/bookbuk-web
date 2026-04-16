@@ -101,10 +101,10 @@ const SwipeFlowPreview = () => (
           Swipe Magic
         </p>
         <h3 className="text-2xl font-bold tracking-tight mb-3" style={{ color: "var(--color-ink)" }}>
-          Unlimited pages are already there.
+          Premium keeps the pages flowing.
         </h3>
         <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>
-          Your book already has unlimited pages, so when you reach the end, just swipe to the next one. No add-page step. No interruption.
+          In Premium, your books already have unlimited pages, so when you reach the end, just swipe to the next one. In the free trial, you get 3 books with 3 pages each.
         </p>
       </div>
 
@@ -128,12 +128,12 @@ const SwipeFlowPreview = () => (
           </div>
           <RuledLines top="30%" lineGap={18} lineColor="var(--preview-rule-line)" />
           <div className="absolute left-[10%] right-[10%] top-[29%] flex flex-col gap-3">
-            {["100%", "92%", "95%", "88%", "96%", "90%", "94%", "86%"].map((width, index) => (
+            {["100%", "94%", "97%", "91%", "95%", "89%", "96%", "84%"].map((width, index) => (
               <div key={index} className="h-[2px] rounded-full" style={{ width, backgroundColor: "var(--color-accent)" }} />
             ))}
           </div>
-          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold" style={{ color: "var(--preview-page-number)" }}>
-            end of page
+          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--preview-page-number)" }}>
+            page 3
           </div>
         </div>
 
@@ -162,14 +162,17 @@ const SwipeFlowPreview = () => (
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
           </div>
           <RuledLines top="30%" lineGap={18} lineColor="var(--preview-rule-line)" />
-          <div
-            className="absolute left-1/2 top-[21%] -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-semibold"
-            style={{ backgroundColor: "var(--icon-chip-bg)", color: "var(--color-ink)" }}
-          >
-            page appears instantly
+          <div className="absolute left-[10%] right-[10%] top-[29%] flex flex-col gap-3">
+            {["24%", "18%", "0%", "0%", "0%", "0%", "0%", "0%"].map((width, index) =>
+              width === "0%" ? (
+                <div key={index} className="h-[2px] rounded-full opacity-0" />
+              ) : (
+                <div key={index} className="h-[2px] rounded-full" style={{ width, backgroundColor: "var(--color-accent)" }} />
+              )
+            )}
           </div>
-          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold" style={{ color: "var(--preview-page-number)" }}>
-            next page ready
+          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--preview-page-number)" }}>
+            page 4
           </div>
         </div>
       </div>
