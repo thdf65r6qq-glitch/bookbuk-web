@@ -90,6 +90,93 @@ const PagePreview = ({ pageNumber }: { pageNumber: number }) => (
   </div>
 );
 
+const SwipeFlowPreview = () => (
+  <div className="glass rounded-3xl p-7 sm:p-8 mb-4">
+    <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
+      <div className="lg:max-w-sm">
+        <p
+          className="text-xs font-semibold uppercase tracking-[0.28em] mb-3"
+          style={{ color: "var(--color-accent)" }}
+        >
+          Swipe Magic
+        </p>
+        <h3 className="text-2xl font-bold tracking-tight mb-3" style={{ color: "var(--color-ink)" }}>
+          Unlimited pages are already there.
+        </h3>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>
+          Your book already has unlimited pages, so when you reach the end, just swipe to the next one. No add-page step. No interruption.
+        </p>
+      </div>
+
+      <div className="flex-1 grid grid-cols-[1fr_auto_1fr] gap-3 items-center min-w-0">
+        <div
+          className="rounded-[1.5rem] p-3 relative overflow-hidden min-h-[210px]"
+          style={{ backgroundColor: "var(--preview-page-bg)", border: "1px solid var(--preview-page-border)" }}
+        >
+          <div
+            className="absolute inset-x-0 top-0 h-11"
+            style={{ borderBottom: "1px solid var(--preview-toolbar-border)" }}
+          />
+          <div className="absolute top-3 left-3 flex gap-1.5">
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+          </div>
+          <div className="absolute top-3 right-3 flex gap-1.5">
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
+          </div>
+          <RuledLines top="30%" lineGap={18} lineColor="var(--preview-rule-line)" />
+          <div className="absolute left-[10%] right-[10%] top-[29%] flex flex-col gap-3">
+            {["100%", "92%", "95%", "88%", "96%", "90%", "94%", "86%"].map((width, index) => (
+              <div key={index} className="h-[2px] rounded-full" style={{ width, backgroundColor: "var(--color-accent)" }} />
+            ))}
+          </div>
+          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold" style={{ color: "var(--preview-page-number)" }}>
+            end of page
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-2 shrink-0">
+          <svg width="40" height="26" viewBox="0 0 40 26" fill="none">
+            <path d="M3 13H35M27 5L35 13L27 21" stroke="var(--color-accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span className="text-xs font-semibold" style={{ color: "var(--color-accent)" }}>swipe</span>
+        </div>
+
+        <div
+          className="rounded-[1.5rem] p-3 relative overflow-hidden min-h-[210px]"
+          style={{ backgroundColor: "var(--preview-page-bg)", border: "1px solid var(--preview-page-border)" }}
+        >
+          <div
+            className="absolute inset-x-0 top-0 h-11"
+            style={{ borderBottom: "1px solid var(--preview-toolbar-border)" }}
+          />
+          <div className="absolute top-3 left-3 flex gap-1.5">
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+          </div>
+          <div className="absolute top-3 right-3 flex gap-1.5">
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
+            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
+          </div>
+          <RuledLines top="30%" lineGap={18} lineColor="var(--preview-rule-line)" />
+          <div
+            className="absolute left-1/2 top-[21%] -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-semibold"
+            style={{ backgroundColor: "var(--icon-chip-bg)", color: "var(--color-ink)" }}
+          >
+            page appears instantly
+          </div>
+          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold" style={{ color: "var(--preview-page-number)" }}>
+            next page ready
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export default function Home() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window === "undefined") {
@@ -224,7 +311,7 @@ export default function Home() {
             Real pages. No endless scrolling.
           </h2>
           <p className="text-sm mb-8" style={{ color: "var(--color-ink-secondary)" }}>
-            One page, one screen. Your book already has unlimited pages, so when you reach the end, just swipe to the next one. No separate add-page step. It works like magic.
+            One page, one screen. Write to the last line, then swipe to turn.
           </p>
 
           <div className="flex items-center justify-center gap-4">
@@ -240,6 +327,8 @@ export default function Home() {
             <PagePreview pageNumber={2} />
           </div>
         </div>
+
+        <SwipeFlowPreview />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
           {[
