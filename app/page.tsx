@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const AppleLogo = ({ size = 17 }: { size?: number }) => (
   <svg width={size * 0.85} height={size} viewBox="0 0 814 1000" fill="currentColor">
@@ -121,7 +121,7 @@ const SwipeFlowPreview = () => (
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
             <div
               className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[7px] font-semibold"
-              style={{ background: "var(--preview-dot-strong)", color: "var(--color-ink)" }}
+              style={{ background: "var(--preview-dot-strong)", color: "var(--preview-number-ink)" }}
             >
               3
             </div>
@@ -136,9 +136,6 @@ const SwipeFlowPreview = () => (
             {["100%", "94%", "97%", "91%", "95%", "89%", "96%", "84%"].map((width, index) => (
               <div key={index} className="h-[2px] rounded-full" style={{ width, backgroundColor: "var(--color-accent)" }} />
             ))}
-          </div>
-          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--preview-page-number)" }}>
-            page 3
           </div>
         </div>
 
@@ -161,7 +158,7 @@ const SwipeFlowPreview = () => (
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
             <div
               className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[7px] font-semibold"
-              style={{ background: "var(--preview-dot-strong)", color: "var(--color-ink)" }}
+              style={{ background: "var(--preview-dot-strong)", color: "var(--preview-number-ink)" }}
             >
               4
             </div>
@@ -172,9 +169,6 @@ const SwipeFlowPreview = () => (
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
           </div>
           <RuledLines top="30%" lineGap={18} lineColor="var(--preview-rule-line)" />
-          <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--preview-page-number)" }}>
-            page 4
-          </div>
         </div>
       </div>
     </div>
@@ -182,7 +176,6 @@ const SwipeFlowPreview = () => (
 );
 
 export default function Home() {
-  const windRef = useRef<HTMLDivElement | null>(null);
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window === "undefined") {
       return "light";
@@ -202,54 +195,8 @@ export default function Home() {
     window.localStorage.setItem("bookbuk-theme", theme);
   }, [theme]);
 
-  useEffect(() => {
-    const wind = windRef.current;
-
-    if (!wind || !window.matchMedia("(pointer: fine)").matches) {
-      return;
-    }
-
-    let frameId = 0;
-    let visible = false;
-    let currentX = window.innerWidth * 0.5;
-    let currentY = window.innerHeight * 0.25;
-    let targetX = currentX;
-    let targetY = currentY;
-
-    const render = () => {
-      currentX += (targetX - currentX) * 0.12;
-      currentY += (targetY - currentY) * 0.12;
-      wind.style.setProperty("--magic-x", `${currentX}px`);
-      wind.style.setProperty("--magic-y", `${currentY}px`);
-      wind.style.setProperty("--magic-opacity", visible ? "1" : "0");
-      frameId = window.requestAnimationFrame(render);
-    };
-
-    const handleMove = (event: PointerEvent) => {
-      targetX = event.clientX;
-      targetY = event.clientY;
-      visible = true;
-    };
-
-    const handleLeave = () => {
-      visible = false;
-    };
-
-    frameId = window.requestAnimationFrame(render);
-    window.addEventListener("pointermove", handleMove);
-    window.addEventListener("pointerleave", handleLeave);
-
-    return () => {
-      window.cancelAnimationFrame(frameId);
-      window.removeEventListener("pointermove", handleMove);
-      window.removeEventListener("pointerleave", handleLeave);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen page-shell" style={{ backgroundColor: "var(--color-paper)" }}>
-      <div ref={windRef} className="magic-wind" aria-hidden="true" />
-      <div className="page-content">
       <button
         type="button"
         className="theme-toggle"
@@ -485,7 +432,6 @@ export default function Home() {
           </a>
         </p>
       </footer>
-      </div>
     </div>
   );
 }
