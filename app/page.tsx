@@ -431,7 +431,7 @@ export default function Home() {
           <span className="inline-flex items-center justify-center" style={{ color: "var(--color-accent)" }}>
             <IPadIcon />
           </span>
-          iPad only
+          iPad + Apple Pencil only
         </div>
       </section>
 
@@ -564,7 +564,7 @@ export default function Home() {
 
       <footer className="px-6 py-10 text-center text-sm" style={{ color: "var(--color-ink-secondary)", borderTop: "1px solid var(--footer-border)" }}>
         <p className="font-semibold mb-1" style={{ color: "var(--color-ink)" }}>BookBuk</p>
-        <p>© {new Date().getFullYear()} BookBuk. iPad only.</p>
+        <p>© {new Date().getFullYear()} BookBuk. iPad + Apple Pencil only.</p>
         <p className="mt-3">
           <a href="/privacypolicy" className="font-medium" style={{ color: "var(--color-accent)" }}>
             Privacy Policy
