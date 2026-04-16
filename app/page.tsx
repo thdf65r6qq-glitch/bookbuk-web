@@ -389,7 +389,14 @@ export default function Home() {
                 </svg>
               ),
               title: "Highlighter",
-              body: "Mark what matters. Only yellow highlighter, its the best! :)",
+              body: (
+                <>
+                  Mark what matters.{" "}
+                  <span className="inline-highlight">
+                    Only yellow highlighter, its the best! :)
+                  </span>
+                </>
+              ),
             },
           ].map((feature) => (
             <div key={feature.title} className="glass rounded-3xl p-7 flex flex-col gap-4">
