@@ -68,7 +68,12 @@ const PagePreview = ({ pageNumber }: { pageNumber: number }) => (
     >
       <div className="flex gap-1">
         <div className="w-4 h-4 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
-        <div className="w-4 h-4 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+        <div
+          className="w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-semibold"
+          style={{ background: "var(--preview-dot-strong)", color: "var(--color-ink)" }}
+        >
+          {pageNumber}
+        </div>
       </div>
       <div className="flex gap-1">
         <div className="w-4 h-4 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
@@ -81,12 +86,7 @@ const PagePreview = ({ pageNumber }: { pageNumber: number }) => (
       <RuledLines top="27%" lineGap={16} lineColor="var(--preview-rule-line)" />
     </div>
 
-    <div
-      className="text-center pb-1.5 relative z-10"
-      style={{ fontSize: "9px", color: "var(--preview-page-number)", fontWeight: 600 }}
-    >
-      {pageNumber}
-    </div>
+    <div className="pb-1.5 relative z-10" />
   </div>
 );
 
@@ -119,7 +119,12 @@ const SwipeFlowPreview = () => (
           />
           <div className="absolute top-3 left-3 flex gap-1.5">
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
-            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+            <div
+              className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[7px] font-semibold"
+              style={{ background: "var(--preview-dot-strong)", color: "var(--color-ink)" }}
+            >
+              3
+            </div>
           </div>
           <div className="absolute top-3 right-3 flex gap-1.5">
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
@@ -154,7 +159,12 @@ const SwipeFlowPreview = () => (
           />
           <div className="absolute top-3 left-3 flex gap-1.5">
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
-            <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
+            <div
+              className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[7px] font-semibold"
+              style={{ background: "var(--preview-dot-strong)", color: "var(--color-ink)" }}
+            >
+              4
+            </div>
           </div>
           <div className="absolute top-3 right-3 flex gap-1.5">
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
@@ -162,15 +172,6 @@ const SwipeFlowPreview = () => (
             <div className="w-3.5 h-3.5 rounded-full" style={{ background: "var(--preview-dot-soft)" }} />
           </div>
           <RuledLines top="30%" lineGap={18} lineColor="var(--preview-rule-line)" />
-          <div className="absolute left-[10%] right-[10%] top-[29%] flex flex-col gap-3">
-            {["24%", "18%", "0%", "0%", "0%", "0%", "0%", "0%"].map((width, index) =>
-              width === "0%" ? (
-                <div key={index} className="h-[2px] rounded-full opacity-0" />
-              ) : (
-                <div key={index} className="h-[2px] rounded-full" style={{ width, backgroundColor: "var(--color-accent)" }} />
-              )
-            )}
-          </div>
           <div className="absolute bottom-3 inset-x-0 text-center text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--preview-page-number)" }}>
             page 4
           </div>
