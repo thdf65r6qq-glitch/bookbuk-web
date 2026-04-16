@@ -294,21 +294,18 @@ export default function Home() {
           </div>
 
           <p
-            className="mt-8 text-[1.45rem] sm:text-[1.9rem] leading-[1.15] font-semibold tracking-tight max-w-2xl mx-auto"
+            className="mt-10 text-[1.2rem] sm:text-[1.55rem] leading-[1.15] font-semibold tracking-tight max-w-4xl mx-auto"
             style={{ color: "var(--color-ink)", textWrap: "balance" }}
           >
-            <span className="block">Screen is your new paper</span>
-            <span
-              className="block mt-1"
-              style={{ color: "var(--color-accent)" }}
-            >
+            <span>Screen is your new paper </span>
+            <span style={{ color: "var(--color-accent)" }}>
               now be the best thought shaper.
             </span>
           </p>
 
           <a
             href="#"
-            className="mt-8 inline-flex items-center gap-3 rounded-2xl px-8 py-4 text-base font-semibold transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            className="mt-7 inline-flex items-center gap-3 rounded-2xl px-8 py-4 text-base font-semibold transition-transform hover:scale-[1.03] active:scale-[0.98]"
             style={{ backgroundColor: "var(--cta-bg)", color: "var(--cta-text)" }}
           >
             <AppleLogo size={20} />
