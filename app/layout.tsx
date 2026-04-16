@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka } from "next/font/google";
 import "./globals.css";
-
-const fredoka = Fredoka({
-  subsets: ["latin"],
-  weight: ["600"],
-  variable: "--font-fredoka",
-});
 
 export const metadata: Metadata = {
   title: "BookBuk - Notebook for iPad",
@@ -40,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={fredoka.variable}>
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

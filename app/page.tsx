@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const AppleLogo = ({ size = 17 }: { size?: number }) => (
@@ -197,7 +198,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen page-shell" style={{ backgroundColor: "var(--color-paper)" }}>
-      <div className="px-6 pt-8">
+      <div className="px-6 pt-4">
         <div className="max-w-6xl mx-auto flex justify-end">
           <button
             type="button"
@@ -210,16 +211,18 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-12 pb-16 text-center">
-        <p
-          className="text-2xl font-bold mb-6"
-          style={{ fontFamily: "Noteworthy, var(--font-fredoka), cursive", color: "var(--color-ink)" }}
-        >
-          BookBuk
-        </p>
+      <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-1 pb-16 text-center">
+        <Image
+          src="/bookbuk-logo.png"
+          alt="BookBuk"
+          width={180}
+          height={180}
+          className="mb-4 h-auto w-[120px] sm:w-[138px]"
+          priority
+        />
 
         <div
-          className="inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-sm font-semibold mb-8 glass"
+          className="inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-sm font-semibold mb-6 glass"
           style={{ color: "var(--color-ink-secondary)" }}
         >
           <span className="inline-flex items-center justify-center" style={{ color: "var(--color-accent)" }}>
@@ -228,8 +231,8 @@ export default function Home() {
           iPad only
         </div>
 
-        <div className="relative mt-4 w-full max-w-5xl mx-auto">
-          <div className="w-full max-w-xl mx-auto">
+        <div className="relative mt-1 w-full max-w-5xl mx-auto">
+          <div className="w-full max-w-xl mx-auto h-[230px] sm:h-[280px] md:h-[320px] overflow-hidden">
             <div className="relative rounded-[2rem] p-4 shadow-2xl glass" style={{ aspectRatio: "4/3" }}>
               <div className="h-full rounded-2xl flex flex-col overflow-hidden" style={{ backgroundColor: "var(--mock-page-bg)" }}>
                 <div className="flex items-center justify-between px-4 pt-3 pb-2">
@@ -286,7 +289,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative z-10 -mt-10 sm:-mt-12 md:-mt-14 mx-auto w-[80%] max-w-3xl">
+          <div className="relative z-10 -mt-px mx-auto w-[80%] max-w-3xl">
             <div
               className="mx-auto h-px w-full"
               style={{ backgroundColor: "var(--hero-divider)" }}
