@@ -51,6 +51,7 @@
   --gradient-start: #141430;
   --gradient-middle: #2e2959;
   --gradient-end: #6b5fa8;
+  --hero-divider: rgba(20, 20, 48, 0.14);
 }
 
 html[data-theme="dark"] {
@@ -93,6 +94,7 @@ html[data-theme="dark"] {
   --gradient-start: #f7f4ff;
   --gradient-middle: #d4cbff;
   --gradient-end: #b7a9ff;
+  --hero-divider: rgba(237, 235, 255, 0.16);
 }
 
 * {
@@ -139,10 +141,6 @@ body {
 }
 
 .theme-toggle {
-  position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 50;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -177,8 +175,6 @@ body {
 
 @media (max-width: 640px) {
   .theme-toggle {
-    top: 1rem;
-    right: 1rem;
     width: 2.15rem;
     height: 2.15rem;
   }

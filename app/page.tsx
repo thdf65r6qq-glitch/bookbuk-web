@@ -286,8 +286,15 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="relative z-10 -mt-10 sm:-mt-12 md:-mt-14 mx-auto w-[80%] max-w-3xl">
+            <div
+              className="mx-auto h-px w-full"
+              style={{ backgroundColor: "var(--hero-divider)" }}
+            />
+          </div>
+
           <h1
-            className="relative z-10 -mt-12 sm:-mt-16 md:-mt-20 text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight gradient-text"
+            className="relative z-10 mt-4 text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight gradient-text"
             style={{ textWrap: "balance" }}
           >
             Easier than paper.
