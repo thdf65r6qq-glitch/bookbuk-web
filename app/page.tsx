@@ -176,43 +176,6 @@ const SwipeFlowPreview = () => (
   </div>
 );
 
-const ReplayIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 7v6h6" />
-    <path d="M3 13C5.4 7.4 12.3 4.8 18 7.4a9 9 0 0 1 3 13.1" />
-  </svg>
-);
-
-function FeatureDemo({ type, replayKey }: { type: "pen" | "eraser" | "highlighter"; replayKey: number }) {
-  if (type === "pen") {
-    return (
-      <div key={replayKey} className="feature-demo" aria-hidden="true">
-        <span className="feature-demo__pen-text">Just start.</span>
-      </div>
-    );
-  }
-
-  if (type === "eraser") {
-    return (
-      <div key={replayKey} className="feature-demo" aria-hidden="true">
-        <div className="feature-demo__eraser-wrap">
-          <span className="feature-demo__eraser-text">Oops, perfect-ish.</span>
-          <span className="feature-demo__eraser-block" />
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div key={replayKey} className="feature-demo" aria-hidden="true">
-      <div className="feature-demo__highlight-wrap">
-        <span className="feature-demo__highlight-marker" />
-        <span className="feature-demo__highlight-text">Only yellow highlighter.</span>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window === "undefined") {
@@ -226,11 +189,6 @@ export default function Home() {
     }
 
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  });
-  const [featureRuns, setFeatureRuns] = useState({
-    pen: 0,
-    eraser: 0,
-    highlighter: 0,
   });
 
   useEffect(() => {
@@ -404,7 +362,6 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
           {[
             {
-              id: "pen" as const,
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 20h9" />
@@ -415,7 +372,6 @@ export default function Home() {
               body: "Write with Apple Pencil. No settings, no decisions. Just start.",
             },
             {
-              id: "eraser" as const,
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 20H7L3 16l10-10 7 7-2.5 2.5" />
@@ -426,7 +382,6 @@ export default function Home() {
               body: "Made a mistake? One tap, it's gone.",
             },
             {
-              id: "highlighter" as const,
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 11l-6 6v3h9l3-3" />
@@ -444,28 +399,14 @@ export default function Home() {
               ),
             },
           ].map((feature) => (
-            <div key={feature.title} className="glass rounded-3xl p-7 flex flex-col gap-4 relative">
+            <div key={feature.title} className="glass rounded-3xl p-7 flex flex-col gap-4">
               <div className="w-11 h-11 rounded-2xl flex items-center justify-center" style={{ backgroundColor: "var(--icon-chip-bg)", color: "var(--color-ink)" }}>
                 {feature.icon}
               </div>
-              <FeatureDemo type={feature.id} replayKey={featureRuns[feature.id]} />
               <div>
                 <h3 className="text-base font-semibold mb-1" style={{ color: "var(--color-ink)" }}>{feature.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>{feature.body}</p>
               </div>
-              <button
-                type="button"
-                className="feature-replay"
-                aria-label={`Replay ${feature.title} animation`}
-                onClick={() =>
-                  setFeatureRuns((current) => ({
-                    ...current,
-                    [feature.id]: current[feature.id] + 1,
-                  }))
-                }
-              >
-                <ReplayIcon />
-              </button>
             </div>
           ))}
         </div>
