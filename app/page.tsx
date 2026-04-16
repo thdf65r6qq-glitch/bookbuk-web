@@ -70,7 +70,7 @@ const PagePreview = ({ pageNumber }: { pageNumber: number }) => (
         <div className="w-4 h-4 rounded-full" style={{ background: "var(--preview-dot-strong)" }} />
         <div
           className="w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-semibold"
-          style={{ background: "var(--preview-dot-strong)", color: "var(--color-ink)" }}
+          style={{ background: "var(--preview-dot-strong)", color: "var(--preview-number-ink)" }}
         >
           {pageNumber}
         </div>
@@ -232,8 +232,17 @@ export default function Home() {
           Easier than paper.
         </h1>
 
-        <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-md" style={{ color: "var(--color-ink-secondary)" }}>
-          Screen is your new paper, now be the best thought shaper.
+        <p
+          className="text-[1.45rem] sm:text-[1.9rem] leading-[1.15] font-semibold tracking-tight mb-10 max-w-2xl"
+          style={{ color: "var(--color-ink)", textWrap: "balance" }}
+        >
+          <span className="block">Screen is your new paper</span>
+          <span
+            className="block mt-1"
+            style={{ color: "var(--color-accent)" }}
+          >
+            now be the best thought shaper.
+          </span>
         </p>
 
         <a
